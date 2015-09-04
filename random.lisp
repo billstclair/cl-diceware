@@ -23,11 +23,27 @@
 
 (defvar */dev/random-stream* nil)
 
+(defvar *real-random-p* :use-features
+  "Control whether we use /dev/random or /dev/urandom.
+See documentation for `real-random-p'.")
+
+(defun real-random-p ()
+  "True if `*real-random-p*' is true or `*real-random-p*' is :USE-FEATURES
+and :CL-DICEWARE-REAL-RANDOM is on `*features*', which it will be if
+you load cl-diceware.asd with a non-null value for the CL_DICEWARE_REAL_RANDOM
+environment variable."
+  (if (eq *real-random-p* :use-features)
+      (not (null (member :cl-diceware-real-random-p *features*)))
+      *real-random-p*))
+
+(defun /dev/random-path ()
+  (if (real-random-p) "/dev/random" "/dev/urandom"))
+
 (defun call-with-/dev/random (thunk)
   "Helper function for `with-dev/random'."
   (if */dev/random-stream*
       (funcall thunk */dev/random-stream*)
-      (with-open-file (s "/dev/random" :element-type '(unsigned-byte 8))
+      (with-open-file (s (/dev/random-path) :element-type '(unsigned-byte 8))
         (let ((*/dev/random-stream* s))
           (funcall thunk s)))))
 

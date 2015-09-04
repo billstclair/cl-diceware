@@ -14,6 +14,12 @@
    (:file "diceware-word-list")
    (:file "diceware")))
 
+(let ((key "CL_DICEWARE_REAL_RANDOM"))
+  (when (or #+asdf3 (UIOP/OS:getenv key)
+            #+ccl (ccl:getenv key)
+            #+sbcl (sb-ext:posix-getenv key))
+    (pushnew :cl-diceware-real-random-p *features*)))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
 ;;; The MIT License (MIT)
