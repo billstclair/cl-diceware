@@ -29,7 +29,7 @@ The "diceware" file is a bash script to print passphrases in a shell.
 
 ## Function reference
 
-All functions are exported from the CL-DICEWARE package. Random bytes are fetched from /dev/random, except on Windows, where it uses *cl:random*.
+All functions are exported from the CL-DICEWARE package. Random bytes are fetched from /dev/random, except on Windows, where it uses **cl:random**.
 
 **with-/dev/random** (&optional _stream_) &body _body_
 
