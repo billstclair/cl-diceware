@@ -59,7 +59,7 @@ All functions are exported from the **cl-diceware** package. Random bytes are fe
 
 >Returns a string containing COUNT random words, separated by spaces.
 
-**`*`real-random-p`*`**
+**&ast;real-random-p&ast;**
 
 Variable controls whether to use /dev/random or /dev/urandom for random numbers. If this variable true and not :USE-FEATAURES, will use /dev/random, otherwise /dev/urandon. If this variable is :USE-FEATURES, will use /dev/random only if :CL-DICEWARE-REAL-RANDOM-P is on *FEATURES*. cl-diceware.asd pushes :CL-DICEWARE-REAL-RANDOM-P on *FEATURES* if the CL_DICEWARE_REAL_RANDOM environment variable is non-blank.
 
