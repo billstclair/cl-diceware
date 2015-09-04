@@ -11,6 +11,7 @@
   :components
   ((:file "package")
    (:file "random")
+   (:file "diceware-word-list")
    (:file "diceware")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
