@@ -26,7 +26,8 @@ elif [[ $LISP == *sbcl* ]]; then
   LISP_OPTIONS="--noinform --no-sysinit --no-userinit --noprint"
 fi
 
-DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+FILE=$( readlink "${BASH_SOURCE[0]}" )
+DIR=$( cd "$( dirname "$FILE" )" && pwd )
 
 $LISP $LISP_OPTIONS \
       --load $DIR/load-cl-diceware \
