@@ -5,6 +5,8 @@
 ;;; Diceware word list
 ;;;
 
+(in-package :cl-diceware)
+
 (defparameter *diceware-words*
   '(11111 "a"
     11112 "a&p"
