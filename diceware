@@ -1,0 +1,32 @@
+#!/bin/bash
+
+if ! [[ $1 == '' || $1 -gt 0 ]]; then
+  echo "Usage: diceware [<count>]"
+  echo "  <count> defaults to 5."
+  echo "  Picks <count> random words from the diceware list,"
+  echo "  and prints them, separated by spaces."
+  exit
+fi
+
+# Tested in CCL & SBCL
+# The LISP environment variable should be a command to start your lisp.
+# If it contains "ccl" or "sbcl", proper command line options will be
+# added to not print extraneous stuff.
+# Otherwise, you can put those command line options in the LISP_OPTIONS
+# environment variable.
+# LISP defaults to "ccl".
+
+if [ "x$LISP" = 'x' ]; then
+  LISP=ccl
+fi
+
+if [[ $LISP == *ccl* ]]; then
+  LISP_OPTIONS="--no-init --batch --quiet"
+elif [[ $LISP == *sbcl* ]]; then
+  LISP_OPTIONS="--noinform --no-sysinit --no-userinit --noprint"
+fi
+
+$LISP $LISP_OPTIONS \
+      --load load-cl-diceware \
+      --eval "(format t \"~a~%\" (cl-diceware:random-words-string $1))" \
+      --eval "(quit)"
