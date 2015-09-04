@@ -23,5 +23,5 @@ Tested in Clozure Common Lisp (CCL) and Steel Bank Common Lisp (SBCL).
 
 <count> defaults to 5. Non-integer <count>, e.g. "-h" or "--help", prints help.
 
-Bill St. Clair `&lt;billstclair@gmail.com&gt;`<br/>
+Bill St. Clair &lt;billstclair@gmail.com&gt;<br/>
 5 September 2015
