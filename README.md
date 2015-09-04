@@ -27,8 +27,8 @@ The "diceware" file is a bash script to print passphrases in a shell.
 
 &lt;count&gt; defaults to 5. Non-integer <count>, e.g. "-h" or "--help", prints help.
 
-;; Use /dev/random instead of the default of /dev/urandom
-;; (Or set CL_DICEWARE_REAL_RANDOM=t in your shell init file)
+;; Use /dev/random instead of the default of /dev/urandom<br/>
+;; (Or set CL_DICEWARE_REAL_RANDOM=t in your shell init file)<br/>
 `CL_DICEWARE_REAL_RANDOM=t ./diceware [<count>]`
 
 ## Function reference
@@ -59,7 +59,7 @@ All functions are exported from the **cl-diceware** package. Random bytes are fe
 
 >Returns a string containing COUNT random words, separated by spaces.
 
-**`*`real-random-p`*`
+**`*`real-random-p`*`**
 
 Variable controls whether to use /dev/random or /dev/urandom for random numbers. If this variable true and not :USE-FEATAURES, will use /dev/random, otherwise /dev/urandon. If this variable is :USE-FEATURES, will use /dev/random only if :CL-DICEWARE-REAL-RANDOM-P is on *FEATURES*. cl-diceware.asd pushes :CL-DICEWARE-REAL-RANDOM-P on *FEATURES* if the CL_DICEWARE_REAL_RANDOM environment variable is non-blank.
 
