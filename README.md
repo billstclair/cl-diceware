@@ -31,27 +31,27 @@ The "diceware" file is a bash script to print passphrases in a shell.
 
 All functions are exported from the CL-DICEWARE package. Random bytes are fetched from /dev/random, except on Windows, where it uses *cl:random*.
 
-*with-/dev/random* (&optional _stream_) &body _body_
+**with-/dev/random** (&optional _stream_) &body _body_
 
 > A macro to bind an (unsigned-byte 8) stream to STREAM around the execution of BODY. Wrap calls to the RANDOM-xxx functions with this to prevent multiple opening and closing of /dev/random.
 
-*random-byte*
+**random-byte**
 
 > Returns a random integer between 0 and 255 (inclusive).
 
-*random-integer* _limit_
+**random-integer** _limit_
 
-> Returns a random integer >= 0 and < limit. Same as *cl:random*, but better randomness.
+> Returns a random integer >= 0 and < limit. Same as **cl:random**, but better randomness.
 
-*random-word*
+**random-word**
 
 > Returns a random word from the Diceware word list.
 
-*random-words* _count_
+**random-words** _count_
 
 > Returns a list of COUNT random words from the Diceware word list.
 
-*random-words-string* _count_
+**random-words-string** _count_
 
 >Returns a string containing COUNT random words, separated by spaces.
 
