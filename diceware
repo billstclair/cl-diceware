@@ -26,7 +26,9 @@ elif [[ $LISP == *sbcl* ]]; then
   LISP_OPTIONS="--noinform --no-sysinit --no-userinit --noprint"
 fi
 
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
 $LISP $LISP_OPTIONS \
-      --load load-cl-diceware \
+      --load $DIR/load-cl-diceware \
       --eval "(format t \"~a~%\" (cl-diceware:random-words-string $1))" \
       --eval "(quit)"
