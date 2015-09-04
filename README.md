@@ -21,7 +21,7 @@ Tested in Clozure Common Lisp (CCL) and Steel Bank Common Lisp (SBCL).
 ;; Run in other lisp<br/>
 `LISP=whatever LISP_OPTIONS="--noprint options" ./diceware [<count>]`
 
-<count> defaults to 5. Non-integer <count>, e.g. "-h" or "--help", prints help.
+&lt;count&gt; defaults to 5. Non-integer <count>, e.g. "-h" or "--help", prints help.
 
 Bill St. Clair &lt;billstclair@gmail.com&gt;<br/>
 5 September 2015
