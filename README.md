@@ -12,16 +12,16 @@ The "diceware" file is a bash script to run it. More info there.
 
 Tested in Clozure Common Lisp (CCL) and Steel Bank Common Lisp (SBCL).
 
-;; Run in CCL (assuming "ccl" will start the lisp).
-./diceware [<count>]
+;; Run in CCL (assuming "ccl" will start the lisp).<br/>
+`./diceware [<count>]`
 
-;; Run in SBCL
-LISP=sbcl ./diceware [<count>]
+;; Run in SBCL<br/>
+`LISP=sbcl ./diceware [<count>]`
 
-;; Run in other lisp
-LISP=whatever LISP_OPTIONS="--noprint options" ./diceware [<count>]
+;; Run in other lisp<br/>
+`LISP=whatever LISP_OPTIONS="--noprint options" ./diceware [<count>]`
 
 <count> defaults to 5. Non-integer <count>, e.g. "-h" or "--help", prints help.
 
-Bill St. Clair <billstclair@gmail.com>
+Bill St. Clair `&lt;billstclair@gmail.com&gt;`<br/>
 5 September 2015
