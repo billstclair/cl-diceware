@@ -123,6 +123,7 @@ environment variable."
 (defun random-integer (limit)
   "Return a random integer >= 0 and < limit. Same as `cl:random', but better randomness."
   (check-type limit (integer 0))
+  (when (eql limit 0) (return-from random-integer 0))
   (with-/dev/random ()
     (loop with count = (integer-length limit)
        for bits = (random-bits count)
