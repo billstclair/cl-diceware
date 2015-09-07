@@ -108,12 +108,14 @@ environment variable."
                  (shift-in *remainder* *remainder-bits*)
                  (dotimes (i full-bytes)
                    (shift-in (random-byte) 8))
-                 (when (> last-byte-bits 0)
-                   (let ((last-byte (random-byte)))
-                     (shift-in (logand last-byte (1- (ash 1 last-byte-bits)))
-                               last-byte-bits)
-                     (setf *remainder* (ash last-byte (- last-byte-bits))
-                           *remainder-bits* (- 8 last-byte-bits))))
+                 (cond ((> last-byte-bits 0)
+                        (let ((last-byte (random-byte)))
+                          (shift-in (logand last-byte (1- (ash 1 last-byte-bits)))
+                                    last-byte-bits)
+                          (setf *remainder* (ash last-byte (- last-byte-bits))
+                                *remainder-bits* (- 8 last-byte-bits))))
+                       (t (setf *remainder* 0
+                                *remainder-bits* 0)))
                  (shift-value)))))))
 
 ;; Can't just get COUNT bits and reduce to LIMIT's range.
